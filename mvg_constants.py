@@ -68,7 +68,7 @@ PRESETS = {
     "Wald und Farbregel": {"n": DEFAULT_N, "seed": DEFAULT_SEED, "graph": "plan", "task": "farben", "k": 2, "c": 4},
 }
 PRESET_HELP = {
-    "Standardfall (Voreinstellung)": "Das Leitungsnetz (7 Standorte, 12 Leitungen) auf zwei Wälder verteilen: Es gibt nur einen Spannbaum, das Verfahren zeigt die Tutte-Partition.",
+    "Standardfall (Voreinstellung)": "Das Leitungsnetz (7 Standorte, 12 Leitungen) auf zwei Wälder verteilen: Es gibt nur einen kantendisjunkten Spannbaum (zwei Spannbäume ohne gemeinsame Leitung gibt es nicht), das Verfahren zeigt eine Partition, die die Bedingung von Tutte verletzt.",
     "Zwei Spannbäume": "Ein Plan mit 6 Standorten, dessen 10 Leitungen genau zwei kantendisjunkte Spannbäume bilden.",
     "K4: zwei Bäume": "Der vollständige Graph auf 4 Knoten: zwei kantendisjunkte Spannbäume, die zusammen alle 6 Leitungen enthalten.",
     "K5: drei Wälder": "K5 (10 Leitungen): nur zwei Spannbäume, aber alle Leitungen passen auf drei Wälder (Arboricity 3).",

@@ -95,7 +95,7 @@ with st.container(key="kopf"):
     st.title("🧩 Matroid-Vereinigung – disjunkte Strukturen packen")
 st.markdown(
     """
-Bisher war es ein Matroid, dann zwei auf einmal (Schnitt). Hier werden Matroide **vereinigt**: Eine Menge ist unabhängig, wenn sie sich in **k Teile zerlegen** lässt, von denen der erste in M1, der zweite in M2 und so weiter unabhängig ist. Anders als der Schnitt ist die **Vereinigung wieder ein Matroid**, mit einer Formel für den Rang. Auf dem Leitungsnetz heißt das: **k kantendisjunkte Spannbäume** (Satz von Tutte und Nash-Williams) und die kleinste Zahl von **Wäldern**, die alle Leitungen überdecken (die **Arboricity**, Satz von Nash-Williams). Gerechnet wird mit dem **Partitionsverfahren**: ein kürzester Weg im Austauschgraphen bringt eine weitere Leitung unter, und wenn keiner mehr da ist, zeigt die erreichbare Menge ein **Zertifikat**. Man kann die Vereinigung auch auf den Schnitt aus Stück 7 zurückführen, das kostet aber mehr Orakelaufrufe.
+Bisher war es ein Matroid, dann zwei auf einmal (Schnitt). Hier werden Matroide **vereinigt**: Eine Menge ist unabhängig, wenn sie sich in **k Teile zerlegen** lässt, von denen der erste in M1, der zweite in M2 und so weiter unabhängig ist. Anders als der Schnitt ist die **Vereinigung wieder ein Matroid**, mit einer Formel für den Rang. Auf dem Leitungsnetz heißt das: **k kantendisjunkte Spannbäume** (Satz von Tutte und Nash-Williams) und die kleinste Zahl von **Wäldern**, die alle Leitungen überdecken (die **Arboricity**, Satz von Nash-Williams). Gerechnet wird mit dem **Partitionsverfahren**: ein kürzester Weg im Austauschgraphen bringt eine weitere Leitung unter, und wenn keiner mehr da ist, zeigt die erreichbare Menge ein **Zertifikat**. Man kann die Vereinigung auch auf den Schnitt aus Stück 7 zurückführen; in der Zählweise dieser Demo braucht das mehr Orakelaufrufe (gemessen bei Paaren mit höchstens 5 Elementen).
 
 Dies ist das **neunte Stück** der Reihe „Matroide und Submodularität“. Weiter unten: vier Experimente (🔬), eine **Spielwiese**, **🚧 Wo die Annahmen enden** und der Expander **📐 Mathematische Formulierung**.
 """
@@ -107,7 +107,7 @@ with st.expander("So hängt es zusammen", expanded=True):
 1. **Vereinigung:** I ist unabhängig in M1 ∨ … ∨ Mk, wenn I = I1 ∪ … ∪ Ik mit Ij unabhängig in Mj. **Rang:** r(X) = Minimum über alle Y ⊆ X von |X ∖ Y| + r1(Y) + … + rk(Y).
 2. **Graphen:** Mit k Exemplaren des Waldmatroids ist eine Zerlegung ein Packen von k kantendisjunkten Wäldern. k Spannbäume gibt es genau dann, wenn jede Partition der Standorte in P Klassen mindestens k · (P − 1) Leitungen zwischen den Klassen hat. Alle Leitungen passen auf k Wälder genau dann, wenn jede Knotenmenge U höchstens k · (|U| − 1) Leitungen in sich hat.
 3. **Partitionsverfahren:** Austauschgraph auf den Leitungen: Pfeil x → y, wenn y im Teil Ij liegt und Ij − y + x in Mj unabhängig ist. **Quellen:** noch nicht untergebrachte Leitungen. **Senken:** Leitungen, die ohne Tausch in ein Mj passen. Auf einem kürzesten Weg übernimmt jede Leitung den Platz ihres Nachfolgers, die letzte kommt in das Mj, in das sie passt.
-4. **Zertifikat:** Gibt es keinen Weg mehr, sei R die von den Quellen aus erreichbare Menge. Dann ist |E ∖ R| + r1(R) + … + rk(R) so groß wie die Zahl der untergebrachten Leitungen, und das ist nach der Rangformel auch die kleinste mögliche Zahl. Bei Wäldern sind die Zusammenhangskomponenten von R die Partition von Tutte (bei Spannbäumen) beziehungsweise zeigen die zu dichte Knotenmenge (bei der Überdeckung).
+4. **Zertifikat:** Gibt es keinen Weg mehr, sei R die von den Quellen aus erreichbare Menge. Dann ist |E ∖ R| + r1(R) + … + rk(R) so groß wie die Zahl der untergebrachten Leitungen, und das ist nach der Rangformel auch die kleinste mögliche Zahl. Bei Wäldern sind die Zusammenhangskomponenten von R eine Partition, die die Bedingung von Tutte verletzt (bei Spannbäumen), beziehungsweise zeigen eine zu dichte Knotenmenge (bei der Überdeckung).
 5. **Reduktion auf den Schnitt:** Zwei Kopien der Grundmenge, M_A (Kopie 1 in M1, Kopie 2 in M2) und M_B (jede Leitung in höchstens einer Kopie): Die größte gemeinsame Menge hat die Größe des Rangs der Vereinigung (Experiment 4).
         """
     )
@@ -242,7 +242,7 @@ if st.session_state.get("small_done"):
     getattr(st, kind_v)(text_v)
 
 st.subheader("🔬 Messreihe: Pläne mit 6 bis 8 Standorten")
-st.caption("20 Pläne je Größe (Seeds 0 bis 19): Wie oft gibt es zwei kantendisjunkte Spannbäume, und welche Arboricity haben die Pläne?")
+st.caption("20 Pläne je Größe (Seeds 0 bis 19; die Anteile gelten nur für diese Pläne): Wie oft gibt es zwei kantendisjunkte Spannbäume, und welche Arboricity haben die Pläne?")
 if st.button("📊 Messreihe über 20 Pläne je Größe", key="series_run"):
     st.session_state["series_done"] = True
 if st.session_state.get("series_done"):

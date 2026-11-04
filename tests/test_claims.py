@@ -47,7 +47,7 @@ def test_certificate_numbers_on_the_plan_and_on_k5():
     assert (cert["k"], cert["classes"], cert["cross"]) == (2, 3, 3) and cert["k"] * (cert["classes"] - 1) == 4
     dense = ev.arb_view(s)["cert"]
     assert (dense["k"], len(dense["nodes"]), len(dense["edges"])) == (2, 5, 9) and dense["k"] * (len(dense["nodes"]) - 1) == 8
-    for fact in ("Es gibt nur **1** Spannbaum", "Partition mit **3** Klassen", "nur **3** Leitungen", "wären **4** nötig", "Die Arboricity ist **3**", "mit **5** Standorten hat **9** Leitungen", "höchstens **8** auf"):
+    for fact in ("Es gibt nur **1** kantendisjunkten Spannbaum", "Partition mit **3** Klassen", "nur **3** Leitungen", "wären **4** nötig", "Die Arboricity ist **3**", "mit **5** Standorten hat **9** Leitungen", "höchstens **8** auf"):
         assert fact in README, fact
     k5 = ev.trees_view(ev.Settings(**C.PRESETS["K5: drei Wälder"]))["cert"]
     assert (k5["k"], k5["classes"], k5["cross"]) == (3, 5, 10) and k5["k"] * (k5["classes"] - 1) == 12
@@ -87,7 +87,7 @@ def test_the_triangle_by_hand(dreieck):
     assert A.rank_table(table, 3)[7] == 2
     assert sum(1 for o in A.partition_steps(3, [table, table])["owner"] if o >= 0) == 3
     assert A.tutte_min(n, edges)["tau"] == 1 and A.nash_williams(n, edges)["arboricity"] == 2
-    assert "Ein Wald nimmt 2 der 3 Kanten auf, zwei Wälder alle 3 (Arboricity 2); zwei Spannbäume bräuchten 4 Kanten, es gibt nur 3 (1 Spannbaum)" in README
+    assert "Ein Wald nimmt 2 der 3 Kanten auf, zwei Wälder alle 3 (Arboricity 2); zwei Spannbäume bräuchten 4 Kanten, es gibt nur 3 (1 kantendisjunkter Spannbaum)" in README
 
 
 def test_the_two_trees_seed_is_the_first_plan_with_six_standorte_and_two_spanning_trees():
