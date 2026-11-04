@@ -1,7 +1,6 @@
 # Matroid-Vereinigung – disjunkte Strukturen packen – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-matroid-vereinigung-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-matroid-vereinigung-demo.streamlit.app/)**
 
 Neuntes Stück der Reihe **Matroide und Submodularität** (Bereich Kombinatorik) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Die Demo behandelt die **Vereinigung** von Matroiden: Eine Menge ist unabhängig, wenn sie sich in **k Teile zerlegen** lässt, von denen Teil j in Mj unabhängig ist. Anders als der Schnitt aus Stück 7 ist die Vereinigung **wieder ein Matroid**, mit einer Formel für den Rang. Auf dem Leitungsnetz heißt das: **k kantendisjunkte Spannbäume** (Tutte, Nash-Williams) und die kleinste Zahl von **Wäldern**, die alle Leitungen überdecken (die **Arboricity**). Gerechnet wird mit dem **Partitionsverfahren**: Ein kürzester Weg im Austauschgraphen bringt eine weitere Leitung unter, und wenn keiner mehr da ist, zeigt die erreichbare Menge ein **Zertifikat**. Man kann die Vereinigung auch auf den Schnitt aus Stück 7 zurückführen; die Demo misst bei Paaren mit höchstens 5 Elementen, dass die Reduktion in ihrer Zählweise mehr Orakelaufrufe braucht.
 
